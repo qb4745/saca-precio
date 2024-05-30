@@ -1,0 +1,7 @@
+{
+  "name": "saca-precio",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
