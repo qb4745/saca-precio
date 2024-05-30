@@ -1,17 +1,84 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Cálculo de Dinero </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Cálculo de Dinero</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card color="primary">
+    <ion-card-header>
+      <ion-card-title>Ingrese Total</ion-card-title>
+      <ion-item>
+        <ion-input
+          type="text"
+          color="secondary"
+          placeholder="0"
+          [value]="totalDinero"
+          (input)="onInput($event)"
+          (blur)="onBlur($event)"
+        ></ion-input>
+      </ion-item>
+      <ion-button
+        (click)="calcularDineroACompras(totalIngresado)"
+        color="light"
+        shape="round"
+        >Calcular</ion-button
+      >
+      <ion-button (click)="limpiar()" color="warning" shape="round"
+        >Borrar</ion-button
+      >
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card color="secondary">
+    <ion-card-content>
+      <ion-item>
+        <ion-label
+          >TOTAL INGRESADO: {{ totalIngresado | currency : "CLP" : "$"
+          }}</ion-label
+        >
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="warning">
+    <ion-card-header>
+      <ion-card-title>DINERO A COMPRAS</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>{{ dineroCompras | currency : "CLP" : "$" }}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="success">
+    <ion-card-header>
+      <ion-card-title>DINERO A GASTOS</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>{{ dineroGastos | currency : "CLP" : "$" }}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="tertiary">
+    <ion-card-content>
+      <ion-item>
+        <ion-label
+          >5% AGREGADO A COMPRAS: {{ dineroAgregadoACompras | currency : "CLP" :
+          "$" }}</ion-label
+        >
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
