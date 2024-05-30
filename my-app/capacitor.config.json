@@ -1,0 +1,10 @@
+{
+  "appId": "cl.dondelaita",
+  "appName": "donde-la-ita",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
